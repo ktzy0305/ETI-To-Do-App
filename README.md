@@ -1,6 +1,17 @@
 # ETI CA2: To-Do App
 This a basic To-Do application developed using Django following the Software Change Management process. We will be following the Disciplined Agile Development approach for this project.
 
+## Set Up
+### Running
+1. ```git clone https://github.com/ktzy0305/ETI-To-Do-App```
+2. ```pip install -r requirements.txt```
+3. ```python manage.py runserver```
+
+### Testing
+1. Install Google Chrome and Chrome Driver
+2. ```pip install -r requirements-test.txt```
+3. ```pytest -v --cov```
+
 ## Important Things To Note
 **Developer(s):**
 PM will be assigning features to you all. Please do TDD approach by writing a failing unit test first, then enough production code to pass, then refactor and repeat the cycle. Once feature is completed and has passed your written unit tests, comment on the issue assigned to you: "Feature X is ready for testing" Please also remember mention the QA Tester @githubbing97. PM will create an issue for testing your feature.
