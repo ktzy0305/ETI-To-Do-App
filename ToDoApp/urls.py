@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from To_do_page.views import todoGreeting
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('To_do_page/', todoGreeting),
 ]
