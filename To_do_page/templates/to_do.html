@@ -20,10 +20,10 @@
 
 <form action="/addTodo/" method="post">{% csrf_token %}
 	<p>
-		Owner: <input type="text" name="Owner"/>
+		Owner: <input type="text" name="Owner" required/>
 	</p>
 	<p>
-		To-Do Item Name: <input type="text" name="Todo"/>
+		To-Do Item Name: <input type="text" name="Todo" required/>
 	</P>
 	<input type="submit" value="Add"/>
 </form>
