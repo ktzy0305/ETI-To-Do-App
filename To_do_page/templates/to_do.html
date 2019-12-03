@@ -12,7 +12,7 @@
 		<p name="owner">Owner: {{todo_item.owner }}</p>
 		<form action="/deleteTodo/{{todo_item.id}}/" method="post">{% csrf_token %}
 			<input type="submit" value="Delete"/>
-			#<input type="submit" formaction="/archiveHistory/{{todo_item.id}}/" value="Archive To history"/>
+			<input type="submit" formaction="/archiveHistory/{{todo_item.id}}/" value="Archive To history"/>
 		</form>
 	</li>
 	{% endfor %}
