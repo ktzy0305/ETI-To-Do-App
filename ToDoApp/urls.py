@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from To_do_page.views import todoGreeting, addTodo, deleteTodo, archiveHistory
+from To_do_page.views import todoGreeting, addTodo, deleteTodo#, archiveHistory
 
 
 urlpatterns = [
@@ -23,5 +23,5 @@ urlpatterns = [
     path('To_do_page/', todoGreeting),
     path('addTodo/', addTodo),
     path('deleteTodo/<int:todo_id>/', deleteTodo),
-    path('archiveHistory/<int:todo_id>/', archiveHistory),
+    #path('archiveHistory/<int:todo_id>/', archiveHistory),
 ]
