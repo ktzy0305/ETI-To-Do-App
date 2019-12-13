@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from To_do_page.models import ToDoItem
+from django.contrib.auth import logout
 
 # Create your views here.
 
@@ -25,3 +26,7 @@ def deleteTodo(request, todo_id):
     delete_item = ToDoItem.objects.get(id=todo_id)
     delete_item.delete()
     return HttpResponseRedirect('/To_do_page/')
+    
+def logout_view(request):
+    logout(request)
+    return HttpResponseRedirect('/login/login/')
