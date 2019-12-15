@@ -2,9 +2,6 @@
 {% block content %}
 {% if user.is_authenticated %}
 	<h1>Welcome {{ user.username }}, this is the history page</h1>
-	<form action="/logout_view/">{% csrf_token %}
-		<input type="submit" value="Logout"</>
-	</form>
 
 	<title>History Page</title>
 <!--<ul>
