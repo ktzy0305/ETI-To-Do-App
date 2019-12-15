@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from To_do_page.views import todoGreeting, addTodo, deleteTodo, logout_view#, archiveHistory
+from To_do_page.views import todoGreeting, addTodo, deleteTodo, logout_view, archiveHistory, historyItem
 from django.views.generic.base import TemplateView # new
 
 urlpatterns = [
@@ -26,5 +26,6 @@ urlpatterns = [
     path('logout_view/', logout_view),
     path('login/', include('django.contrib.auth.urls')),
     path('login/', TemplateView.as_view(template_name='home.html'), name='home'),
-    #path('archiveHistory/<int:todo_id>/', archiveHistory),
+    path('archiveHistory/<todo_Todo>/<todo_own>/', archiveHistory),
+    path('historyItem', historyItem),
 ]
