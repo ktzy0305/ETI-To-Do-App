@@ -1,0 +1,60 @@
+{% block content %}
+{% if user.is_authenticated %}
+	<h1>Welcome {{ user.username }}, this is the contribution page</h1>
+	
+	<style>
+	th, td {
+	  border: 1px solid #006;
+	}
+	table {
+	  border-collapse: collapse;
+	}
+	
+	</style>
+	<!--<form action="/logout_redirect/">{% csrf_token %}
+		<input type="submit" value="Logout"</>
+	</form> -->
+
+	<title>Contributions Page</title>
+
+
+	<h2> Sprint 1 
+
+	<table style="width:35%">
+	  <tr>
+		<th>Full Name (Github alias)</th>
+		<th>Role</th>
+	  </tr>
+	  
+	  <tr>
+		<td>Kevin Toh (ktzy0305)</td>
+		<td>Project Manager</td>
+	  </tr>
+	  
+	  <tr>
+		<td>Tan Jun Wu (tanjunwu)</td>
+		<td>Developer</td>
+	  </tr>
+	  
+	  <tr>
+		<td>Chua Tee Kiat (kealtke)</td>
+		<td>Developer</td>
+	  </tr>
+	  
+	  <tr>
+		<td>Marcus Goh (Klann98)</td>
+		<td>Developer</td>
+	  </tr>
+	  
+	  <tr>
+		<td>Malcolm Tham (githubbing97)</td>
+		<td>Quality Assurance (QA)</td>
+	  </tr>
+	  
+	</table>
+	
+{% else %}
+  <p>You are not logged in</p>
+  <button onclick="location.href='{% url 'login' %}'">Login</button>
+{% endif %}
+{% endblock %}

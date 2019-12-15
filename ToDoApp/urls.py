@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from To_do_page.views import todoGreeting, addTodo, deleteTodo, logout_view, archiveHistory, historyItem
+from contributions.views import contributions_view
 from django.views.generic.base import TemplateView # new
 
 urlpatterns = [
@@ -28,4 +29,5 @@ urlpatterns = [
     path('login/', TemplateView.as_view(template_name='home.html'), name='home'),
     path('archiveHistory/<todo_Todo>/<todo_own>/', archiveHistory),
     path('historyItem', historyItem),
+    path('contribution/', contributions_view)
 ]
