@@ -28,6 +28,10 @@ urlpatterns = [
     path('login/', include('django.contrib.auth.urls')),
     path('login/', TemplateView.as_view(template_name='home.html'), name='home'),
     path('archiveHistory/<todo_Todo>/<todo_own>/', archiveHistory),
+<<<<<<< HEAD
     path('historyItem', historyItem),
     path('contribution/', contributions_view)
+=======
+    path('historyItem', historyItem, name='todohistorypage'),
+>>>>>>> 67b7b18965ed076698e5527a65d7d8294b06bc55
 ]
