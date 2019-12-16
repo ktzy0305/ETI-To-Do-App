@@ -69,21 +69,23 @@ def test_time_add_item():
     elem_todo.send_keys("to_do_test")
     elem_todo.send_keys(Keys.RETURN)
     time_now = datetime.now()
-    timenow = time_now.strftime("%b. ")+time_now.strftime("%d").lstrip('0')+time_now.strftime(", %Y, ")+ time_now.strftime("%I") +  time_now.strftime(":%M %p")
-    splited = timenow.split()
-    if (splited[-1] == 'PM'):
-        splited[-1] = 'p.m.'
-    else:
-        splited[-1] = 'a.m.'
-    time = splited[-2]
-    if (time[-2] == '0' and time[-1] == '0'):
-        hour = time.split(":")
-        print("hi")
-        splited[-2] = hour[0]
-    time_now = ' '.join(splited)
+    if (time_now.strftime("%I:%M %p") == "12:00 AM"):
+        timenow=time_now.strftime("%b. ")+time_now.strftime("%d").lstrip('0')+time_now.strftime(", %Y, ")+"midnight"
+    elif(time_now.strftime("%I:%M %p") == "12:00 PM"):
+        timenow=timenow=time_now.strftime("%b. ")+time_now.strftime("%d").lstrip('0')+time_now.strftime(", %Y, ")+"noon"
+    elif(time_now.strftime("%p") == "PM"):
+        if (time_now.strftime("%M") == "00"):
+            timenow=time_now.strftime("%b. ")+time_now.strftime("%d").lstrip('0')+time_now.strftime(", %Y, ")+ time_now.strftime("%I").lstrip('0') +  ' p.m.'
+        else:
+            timenow=time_now.strftime("%b. ")+time_now.strftime("%d").lstrip('0')+time_now.strftime(", %Y, ")+ time_now.strftime("%I").lstrip('0') +  time_now.strftime(":%M ") + 'p.m.'
+    elif(time_now.strftime("%p") == "AM"):
+        if(time_now.strftime("%M") == "00"):
+            timenow=time_now.strftime("%b. ")+time_now.strftime("%d").lstrip('0')+time_now.strftime(", %Y, ")+ time_now.strftime("%I").lstrip('0') +' a.m.'
+        else:
+            timenow=time_now.strftime("%b. ")+time_now.strftime("%d").lstrip('0')+time_now.strftime(", %Y, ")+ time_now.strftime("%I").lstrip('0') +  time_now.strftime(":%M ") + 'a.m.'
     html_list = driver.find_element_by_name("item_list")
     items = html_list.find_elements_by_tag_name("li")
     time_created = items[count_1].find_element_by_name("time_created").text
-    assert ("Time Created: " + time_now) == time_created
+    assert ("Time Created: " + timenow) == time_created
 
     
