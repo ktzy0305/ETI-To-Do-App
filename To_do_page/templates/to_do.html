@@ -34,6 +34,11 @@
 		<p>
 			To-Do Item Name: <input type="text" name="Todo" required/>
 		</P>
+		{% if some_flag %}
+			<div id="some_flag" title="Some Flag">
+				<p>Check your input for Owner name and Item name.</p>
+			</div>
+		{% endif %}
 		<input type="submit" value="Add"/>	
 	</form>
 {% else %}

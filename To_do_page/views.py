@@ -4,6 +4,7 @@ from To_do_page.models import ToDoItem, ArchiveHistory
 from django.contrib.auth import logout, get_user
 from datetime import datetime
 
+
 # Create your views here.
 
 #def todoGreeting(request):
@@ -20,11 +21,17 @@ def todoGreeting(request):
 def addTodo(request):
     own = get_user(request)
     new_todo = request.POST['Todo']
-    time = datetime.now()
-    #time = time.strftime('%Y-%m-%d %H:%M')
-    new_item = ToDoItem(owner=own, Todo=new_todo, Timecreated=time)
-    new_item.save()
-    return HttpResponseRedirect('/To_do_page/')
+    if ((own!= "")and (new_todo!="")):
+        time = datetime.now()
+        #time = time.strftime('%Y-%m-%d %H:%M')
+        new_item = ToDoItem(owner=own, Todo=new_todo, Timecreated=time)
+        new_item.save()
+        return HttpResponseRedirect('/To_do_page/')
+    else:
+        #context["error"] = "Check your input for Owner name and Item name."
+        #return {'some_flag': True}
+        return render(request, 'to_do.html', {'some_flag': True})
+        #return HttpResponseRedirect('/To_do_page/', {'some_flag': True})
     
 def deleteTodo(request, todo_id):
     delete_item = ToDoItem.objects.get(id=todo_id)
