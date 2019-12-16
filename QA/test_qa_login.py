@@ -39,7 +39,35 @@ class TestLogin:
         assert welcome_user_element.text == "Welcome, marcus@abc.com"
 
     def test_login_wrong_password(self):
-        return
+        self.driver.get("http://127.0.0.1:8000/login/login/")
+        username_element = self.driver.find_element_by_id("id_username")
+        password_element = self.driver.find_element_by_id("id_password")
+        login_button_element = self.driver.find_element_by_xpath("/html/body/div/main/form/button")
+        
+        username_element.send_keys("marcus@abc.com")
+        password_element.send_keys("redmonday")
+
+        login_button_element.click()
+
+        time.sleep(2)
+
+        error_message_element = self.driver.find_element_by_xpath('/html/body/div/main/form/ul/li')
+        
+        assert error_message_element.text == "Please enter a correct username and password. Note that both fields may be case-sensitive."
 
     def test_login_wrong_username(self):
-        return
+        self.driver.get("http://127.0.0.1:8000/login/login/")
+        username_element = self.driver.find_element_by_id("id_username")
+        password_element = self.driver.find_element_by_id("id_password")
+        login_button_element = self.driver.find_element_by_xpath("/html/body/div/main/form/button")
+        
+        username_element.send_keys("mark@abc.com")
+        password_element.send_keys("bluemonday")
+
+        login_button_element.click()
+
+        time.sleep(2)
+
+        error_message_element = self.driver.find_element_by_xpath('/html/body/div/main/form/ul/li')
+        
+        assert error_message_element.text == "Please enter a correct username and password. Note that both fields may be case-sensitive."
