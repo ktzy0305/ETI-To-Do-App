@@ -1,29 +1,40 @@
-<h1>This is the to do page</h1>
+{% extends 'base.html' %}
 <title>To Do Page</title>
-<!--<ul>
+
+{% block content %}
+{% if user.is_authenticated %}
+	<h1 name="greeting">Welcome {{ user.username }}, this is the to do page</h1>
+	<!--<ul>
 	<li>temp todo item1</li>
 	<li>temp todo item2</li>
 </ul> -->
 
-<ul>
-	{% for todo_item in all_items %}
-	<li>
-		<P name="item">Item Name: {{todo_item.Todo }}</p>
-		<p name="owner">Owner: {{todo_item.owner }}</p>
-		<form action="/deleteTodo/{{todo_item.id}}/" method="post">{% csrf_token %}
-			<input type="submit" value="Delete"/>
-			<input type="submit" formaction="/archiveHistory/{{todo_item.id}}/" value="Archive To history"/>
-		</form>
-	</li>
-	{% endfor %}
-</ul>
+	<ul name='item_list'>
+		{% for todo_item in all_items %}
+		<li>
+			<P name="item">Item Name: {{todo_item.Todo }}</p>
+			<p name="owner">Owner: {{todo_item.owner }}</p>
+			<form action="/deleteTodo/{{todo_item.id}}/" method="post">{% csrf_token %}
+				<input name="delete" type="submit" value="Delete"/>
+			</form>
+			<form action="/archiveHistory/{{todo_item.Todo}}/{{todo_item.owner}}/" method="post">{% csrf_token %}
+				<input name="archive" type="submit" value="Archive To history"/>
+			</form>
+		</li>
+		{% endfor %}
+	</ul>
 
-<form action="/addTodo/" method="post">{% csrf_token %}
-	<p>
-		Owner: <input type="text" name="Owner" required/>
-	</p>
-	<p>
-		To-Do Item Name: <input type="text" name="Todo" required/>
-	</P>
-	<input type="submit" value="Add"/>
-</form>
+	<form action="/addTodo/" method="post">{% csrf_token %}
+		<p>
+			Owner: <input type="text" name="Owner" required/>
+		</p>
+		<p>
+			To-Do Item Name: <input type="text" name="Todo" required/>
+		</P>
+		<input type="submit" value="Add"/>	
+	</form>
+{% else %}
+  <p class='error_msg'>You are not logged in</p>
+  <button onclick="location.href='{% url 'login' %}'">Login</button>
+{% endif %}
+{% endblock %}
