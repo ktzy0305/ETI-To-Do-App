@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from To_do_page.models import ToDoItem, ArchiveHistory
-from django.contrib.auth import logout
+from django.contrib.auth import logout, get_user
+from datetime import datetime
 
 # Create your views here.
 
@@ -9,16 +10,19 @@ from django.contrib.auth import logout
 #    return HttpResponse('Hello, this is To-Do Page.')
 
 def todoGreeting(request):
-    all_todo = ToDoItem.objects.all()
+    own = get_user(request)
+    all_todo = ToDoItem.objects.all().filter(owner=own)
     context = {
         'all_items': all_todo
     }
     return render(request, 'to_do.html', context)
     
 def addTodo(request):
-    own = request.POST['Owner']
+    own = get_user(request)
     new_todo = request.POST['Todo']
-    new_item = ToDoItem(owner=own, Todo=new_todo)
+    time = datetime.now()
+    #time = time.strftime('%Y-%m-%d %H:%M')
+    new_item = ToDoItem(owner=own, Todo=new_todo, Timecreated=time)
     new_item.save()
     return HttpResponseRedirect('/To_do_page/')
     
