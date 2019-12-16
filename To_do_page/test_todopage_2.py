@@ -1,7 +1,8 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+from datetime import datetime
 import pytest
-import datetime
+
 driver=webdriver.Chrome()
 
 def  test_webpage():

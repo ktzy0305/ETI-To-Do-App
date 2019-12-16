@@ -8,25 +8,28 @@
 	<li>temp todo item1</li>
 	<li>temp todo item2</li>
 </ul> -->
-
 	<ul name='item_list'>
 		{% for todo_item in all_items %}
 		<li>
-			<P name="item">Item Name: {{todo_item.Todo }}</p>
-			<p name="owner">Owner: {{todo_item.owner }}</p>
+		<p>
+			<div name="item">Item Name: {{todo_item.Todo }}</div>
+			<div name="owner" margin=0 padding=0>Owner: {{todo_item.owner }}</div>
+			<div name="time_created" margin=0 padding=0>Time Created: {{todo_item.Timecreated }}</div>
 			<form action="/deleteTodo/{{todo_item.id}}/" method="post">{% csrf_token %}
 				<input name="delete" type="submit" value="Delete"/>
 			</form>
 			<form action="/archiveHistory/{{todo_item.Todo}}/{{todo_item.owner}}/" method="post">{% csrf_token %}
 				<input name="archive" type="submit" value="Archive To history"/>
+				</br>
 			</form>
+		</p>
 		</li>
 		{% endfor %}
 	</ul>
-
+	
 	<form action="/addTodo/" method="post">{% csrf_token %}
 		<p>
-			Owner: <input type="text" name="Owner" required/>
+			Owner: <input type="text" name="Owner" value="{{ user.username }}" disabled/>
 		</p>
 		<p>
 			To-Do Item Name: <input type="text" name="Todo" required/>
