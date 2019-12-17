@@ -7,7 +7,6 @@ from To_do_page.models import ToDoItem, ArchiveHistory
 from django.contrib.auth import logout, get_user
 from datetime import datetime
 
->>>>>>> 406db8e41e9f4c4cd75a88ea58055b45a9551e8a
 
 # Create your views here.
 
