@@ -4,6 +4,7 @@
 	<li>temp todo item1</li>
 	<li>temp todo item2</li>
 </ul> -->
+<<<<<<< HEAD
 
 <ul>
 	{% for todo_item in all_items %}
@@ -27,3 +28,43 @@
 	</P>
 	<input type="submit" value="Add"/>
 </form>
+=======
+	<ul name='item_list'>
+		{% for todo_item in all_items %}
+		<li>
+		<p>
+			<div name="item">Item Name: {{todo_item.Todo }}</div>
+			<div name="owner" margin=0 padding=0>Owner: {{todo_item.owner }}</div>
+			<div name="time_created" margin=0 padding=0>Time Created: {{todo_item.Timecreated }}</div>
+			<form action="/deleteTodo/{{todo_item.id}}/" method="post">{% csrf_token %}
+				<input name="delete" type="submit" value="Delete"/>
+			</form>
+			<form action="/archiveHistory/{{todo_item.Todo}}/{{todo_item.owner}}/" method="post">{% csrf_token %}
+				<input name="archive" type="submit" value="Archive To history"/>
+				</br>
+			</form>
+		</p>
+		</li>
+		{% endfor %}
+	</ul>
+	
+	<form action="/addTodo/" method="post">{% csrf_token %}
+		<p>
+			Owner: <input type="text" name="Owner" value="{{ user.username }}" disabled/>
+		</p>
+		<p>
+			To-Do Item Name: <input type="text" name="Todo" required/>
+		</P>
+		{% if some_flag %}
+			<div id="some_flag" title="Some Flag">
+				<p>Check your input for Owner name and Item name.</p>
+			</div>
+		{% endif %}
+		<input type="submit" value="Add"/>	
+	</form>
+{% else %}
+  <p class='error_msg'>You are not logged in</p>
+  <button onclick="location.href='{% url 'login' %}'">Login</button>
+{% endif %}
+{% endblock %}
+>>>>>>> 406db8e41e9f4c4cd75a88ea58055b45a9551e8a
