@@ -1,8 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
-<<<<<<< HEAD
 from To_do_page.models import ToDoItem
-=======
 from To_do_page.models import ToDoItem, ArchiveHistory
 from django.contrib.auth import logout, get_user
 from datetime import datetime
