@@ -5,7 +5,3 @@ from django.db import models
 class ToDoItem(models.Model):
     owner = models.CharField(max_length=100)
     Todo = models.TextField()
-
-class ArchiveHistory(models.Model):
-    owner = models.CharField(max_length=100)
-    Todo = models.CharField(max_length=100)

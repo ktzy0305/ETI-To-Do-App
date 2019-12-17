@@ -15,20 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from To_do_page.views import todoGreeting, addTodo, deleteTodo, logout_view, archiveHistory, historyItem
-from contributions.views import contributions_view
+from To_do_page.views import todoGreeting, addTodo, deleteTodo#, archiveHistory
 from django.views.generic.base import TemplateView # new
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('To_do_page/', todoGreeting, name='todopage'),
+    path('To_do_page/', todoGreeting),
     path('addTodo/', addTodo),
     path('deleteTodo/<int:todo_id>/', deleteTodo),
-    path('logout_view/', logout_view),
     path('login/', include('django.contrib.auth.urls')),
-    path('', TemplateView.as_view(template_name='home.html'), name='home'),
-    path('archiveHistory/<todo_Todo>/<todo_own>/', archiveHistory),
-    path('historyItem', historyItem),
-    path('contribution/', contributions_view, name='contributionpage'),
-    path('historyItem', historyItem, name='todohistorypage'),
+    path('login/', TemplateView.as_view(template_name='home.html'), name='home'),
+    #path('archiveHistory/<int:todo_id>/', archiveHistory),
 ]
