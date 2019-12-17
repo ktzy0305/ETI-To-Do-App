@@ -8,4 +8,3 @@ from django.shortcuts import redirect
 
 def contributions_view(request):
     return render(request, 'contribution_index.html')
-    return response

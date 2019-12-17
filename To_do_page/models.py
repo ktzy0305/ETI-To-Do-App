@@ -11,3 +11,4 @@ class ToDoItem(models.Model):
 class ArchiveHistory(models.Model):
     owner = models.CharField(max_length=100)
     Todo = models.CharField(max_length=100)
+

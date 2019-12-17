@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 <title>To Do Page</title>
-
 {% block content %}
 {% if user.is_authenticated %}
 	<h1 name="greeting">Welcome {{ user.username }}, this is the to do page</h1>
-	<!--<ul>
+<!--<ul>
 	<li>temp todo item1</li>
 	<li>temp todo item2</li>
 </ul> -->
+
 	<ul name='item_list'>
 		{% for todo_item in all_items %}
 		<li>
@@ -42,7 +42,8 @@
 		<input type="submit" value="Add"/>	
 	</form>
 {% else %}
-  <p class='error_msg'>You are not logged in</p>
-  <button onclick="location.href='{% url 'login' %}'">Login</button>
+	<p class='error_msg'>You are not logged in</p>
+	<button onclick="location.href='{% url 'login' %}'">Login</button>
 {% endif %}
 {% endblock %}
+
