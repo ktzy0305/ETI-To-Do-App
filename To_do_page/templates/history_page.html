@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if user.is_authenticated %}
+	<h1>Welcome {{ user.username }}, this is the history page</h1>
+
+	<title>History Page</title>
+<!--<ul>
+	<li>temp todo item1</li>
+	<li>temp todo item2</li>
+</ul> -->
+
+	<ul>
+		{% for todo_item in all_items %}
+		<li>
+			<P name="item">Item Name: {{todo_item.Todo }}</p>
+			<p name="owner">Owner: {{todo_item.owner }}</p>
+		</li>
+		{% endfor %}
+	</ul>
+{% else %}
+  <p name='error_msg'>You are not logged in</p>
+  <button onclick="location.href='{% url 'login' %}'">Login</button>
+{% endif %}
+{% endblock %}
