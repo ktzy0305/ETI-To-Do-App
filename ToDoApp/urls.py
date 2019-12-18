@@ -25,10 +25,11 @@ urlpatterns = [
     path('addTodo/', addTodo),
     path('deleteTodo/<int:todo_id>/', deleteTodo),
     path('logout_view/', logout_view),
-    path('login/', include('django.contrib.auth.urls')),
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
     path('archiveHistory/<todo_Todo>/<todo_own>/', archiveHistory),
     path('historyItem', historyItem),
     path('contribution/', contributions_view, name='contributionpage'),
     path('historyItem', historyItem, name='todohistorypage'),
+    path('accounts/', include('accounts.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
