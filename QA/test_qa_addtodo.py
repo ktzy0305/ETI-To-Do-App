@@ -3,7 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
 
-class TestToDoPageQA:
+class TestAddToDoQA:
     driver = webdriver.Chrome()
 
     def test_add_to_do_item_no_input(self):
