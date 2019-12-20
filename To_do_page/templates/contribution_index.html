@@ -1,83 +1,175 @@
 {% extends 'base.html' %}
 {% block content %}
 {% if user.is_authenticated %}
-<br/>
+<br>
 <h2>Team Contributions</h2>
-<div class="row" id="contributions">
-    <div class="col-sm-6">
-        <h4>Sprint 1</h4>
-        <table class="table">
-            <thead class="thead-light">
-                <tr>
-                    <th>Name (Github Alias)</th>
-                    <th>Role</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Kevin Toh (ktzy0305)</td>
-                    <td>Project Manager</td>
-                </tr>
-                
-                <tr>
-                    <td>Tan Jun Wu (tanjunwu)</td>
-                    <td>Developer</td>
-                </tr>
-                
-                <tr>
-                    <td>Chua Tee Kiat (kealtke)</td>
-                    <td>Developer</td>
-                </tr>
-                
-                <tr>
-                    <td>Marcus Goh (Klann98)</td>
-                    <td>Developer</td>
-                </tr>
-                
-                <tr>
-                    <td>Malcolm Tham (githubbing97)</td>
-                    <td>Quality Assurance</td>
-                </tr>
-            </tbody>
-        </table>
+<br>
+<div id="contributions">
+	<div class="row">
+		<div class="col-sm-12">
+			<h4>Sprint 1</h4>
+			<table class="table">
+				<thead class="thead-light">
+					<tr>
+						<th>Name (Github Alias)</th>
+                        <th>Role</th>
+                        <th>Responsibilities</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Kevin Toh (ktzy0305)</td>
+                        <td>Project Manager</td>
+                        <td>
+                            Managing the Team
+                            <ul>
+                                <li>Managed the creation, assignment and closure of issues for the changes for Sprint 1.</li>
+                                <li>Clearing any doubts with the requirements and responsibilities that the Developers and QA members have.</li>
+                            </ul>
+                            Managing the Github Repository for the project.
+                            <ul>
+                                <li>Set up the intial Django Project along with requirements.</li>
+                                <li>Handle and resolved issues with Django encountered by other team members.</li>
+                            </ul>
+                        </td>
+					</tr>
+					
+					<tr>
+						<td>Tan Jun Wu (tanjunwu)</td>
+                        <td>Developer</td>
+                        <td>
+                            To-Do Page
+                            <ul>
+                                <li>Show To-Do Items to all valid users regardless of owner.</li>
+                                <li>Add, Delete, Archive to History functions.</li>
+                            </ul>
+                        </td>
+					</tr>
+					
+					<tr>
+						<td>Chua Tee Kiat (kealtke)</td>
+                        <td>Developer</td>
+                        <td>
+                            To-Do History Page
+                            <ul>
+                                <li>Show the history of all To-Do Items archived manually.</li>
+                            </ul>
+                        </td>
+					</tr>
+					
+					<tr>
+						<td>Marcus Goh (Klann98)</td>
+                        <td>Developer</td>
+                        <td>
+                            User Login Page
+                            <ul>
+                                <li>Allow pre-defined valid users to login</li>
+                            </ul>
+                        </td>
+					</tr>
+					
+					<tr>
+						<td>Malcolm Tham (githubbing97)</td>
+                        <td>Quality Assurance</td>
+                        <td>
+                            Creating Test Case Scenarios and Test Automation
+                            <ul>
+                                <li>QA Test Case Scenarios for the requirements of Sprint 1</li>
+                                <li>Automation of the QA Test Case Scenarios for Sprint 1</li>
+                            </ul>
+                        </td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
     </div>
-    <div class="col-sm-6">
-        <h4>Sprint 2</h4>
-        <table class="table">
-            <thead class="thead-light">
-                <tr>
-                    <th>Name (Github Alias)</th>
-                    <th>Role</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Kevin Toh (ktzy0305)</td>
-                    <td>Project Manager<br/>Quality Assurance</td>
-                </tr>
-                
-                <tr>
-                    <td>Tan Jun Wu (tanjunwu)</td>
-                    <td>Project Manager<br/>Lead Developer</td>
-                </tr>
-                
-                <tr>
-                    <td>Chua Tee Kiat (kealtke)</td>
-                    <td>Developer</td>
-                </tr>
-                
-                <tr>
-                    <td>Marcus Goh (Klann98)</td>
-                    <td>Developer</td>
-                </tr>
-                
-                <tr>
-                    <td>Malcolm Tham (githubbing97)</td>
-                    <td>Quality Assurance</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <br>
+	<div class="row">
+		<div class="col-sm-12">
+			<h4>Sprint 2</h4>
+			<table class="table">
+				<thead class="thead-light">
+					<tr>
+						<th>Name (Github Alias)</th>
+                        <th>Role</th>
+                        <th>Responsibilities</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Kevin Toh (ktzy0305)</td>
+                        <td>Project Manager<br/>Quality Assurance</td>
+                        <td>
+                            Managing the Team
+                            <ul>
+                                <li>Managed the creation, assignment and closure of issues for the changes for Sprint 2.</li>
+                            </ul>
+                            Assisting QA with Testing
+                            <ul>
+                                <li>Assisted in the creation of QA Test Case Scenarios for Sprint 2.</li>
+                                <li>Provided technical expertise for coding the automation for the QA Test Case Scenarios for Sprint 2.</li>
+                            </ul>
+                        </td>
+					</tr>	
+					<tr>
+						<td>Tan Jun Wu (tanjunwu)</td>
+                        <td>Project Manager<br/>Lead Developer</td>
+                        <td>
+                            Managing the Team
+                            <ul>
+                                <li>Managed the delivery of the changes in project requirements for Sprint 2.</li>
+                            </ul>
+                            Managing Developers
+                            <ul>
+                                <li>Assist and managed other developers.</li>
+                                <li>Providing technical expertise to the developers.</li>
+                            </ul>
+                            To-Do Page
+                            <ul>
+                                <li>Show To-Do items that are filtered to those owned by the current user</li>
+                                <li>Automatically add a timestamp to To-Do items upon creation.</li>
+                            </ul>
+                        </td>
+					</tr>			
+					<tr>
+						<td>Chua Tee Kiat (kealtke)</td>
+                        <td>Developer</td>
+                        <td>
+                            To-Do Page
+                            <ul>
+                                <li>Addition and deletion of To-Do items are auto archived.</li>
+                            </ul>
+                            To-Do History Page
+                            <ul>
+                                <li>Show a history of all To-Do Items added and deleted.</li>
+                            </ul>
+                        </td>
+					</tr>
+					<tr>
+						<td>Marcus Goh (Klann98)</td>
+                        <td>Developer</td>
+                        <td>
+                            User Registration Page
+                            <ul>
+                                <li>Allow new users to sign up.</li>
+                            </ul>
+                        </td>
+					</tr>
+					<tr>
+						<td>Malcolm Tham (githubbing97)</td>
+                        <td>Quality Assurance</td>
+                        <td>
+                            Creating Test Case Scenarios and Test Automation
+                            <ul>
+                                <li>QA Test Case Scenarios for the requirements of Sprint 2</li>
+                                <li>Automation of the QA Test Case Scenarios for Sprint 2</li>
+                            </ul>
+                        </td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
 </div>	
 {% else %}
 <br>

@@ -1,0 +1,31 @@
+#login-form-option{
+    display: block;
+    padding-top: 20px;
+}
+
+@media only screen and (max-width: 768px)  {
+    #contributions{
+        font-size: 0.95em;
+    }
+
+}
+
+@media only screen and (max-width: 512px)  {
+    #contributions{
+        font-size: 0.8em;
+    }
+
+}
+
+@media only screen and (max-width: 388px)  {
+    #contributions{
+        font-size: 0.75em;
+    }
+
+}
+
+@media only screen and (max-width: 320px)  {
+    #contributions{
+        font-size: 0.75em;
+    }
+}
