@@ -3,29 +3,87 @@
     padding-top: 20px;
 }
 
+#form-container, #add-btn-container{
+    padding-top: 20px;
+}
+
+#some_flag{
+    color: #ff0000;
+}
+
+#to-do-table, #to-do-history-table{
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+#to-do-table tbody tr td[name=todo], #to-do-history-table tbody tr td[name=item]{
+    max-width: 400px;
+}
+
+#pagination-count{
+    display: block;
+    text-align: right;
+}
+
 @media only screen and (max-width: 768px)  {
-    #contributions{
+    #to-do-table, #to-do-history-table, #contributions, #pagination-count{
         font-size: 0.95em;
+    }
+
+    button[name=delete]{
+        font-size: 0.95em;
+    }
+
+    #to-do-table tbody tr td[name=todo], #to-do-history-table tbody tr td[name=item]{
+        max-width: 300px;
     }
 
 }
 
 @media only screen and (max-width: 512px)  {
-    #contributions{
+    #to-do-table, #to-do-history-table, #contributions, #pagination-count{
         font-size: 0.8em;
+    }
+
+    button[name=delete]{
+        font-size: 0.9em;
+    }
+
+    #to-do-table tbody tr td[name=todo], #to-do-history-table tbody tr td[name=item]{
+        max-width: 150px;
     }
 
 }
 
 @media only screen and (max-width: 388px)  {
-    #contributions{
+    #to-do-table, #to-do-history-table, #contributions, #pagination-count{
         font-size: 0.75em;
+    }
+
+    button[name=delete]{
+        font-size: 0.9em;
+    }
+
+    #to-do-table tbody tr td[name=todo], #to-do-history-table tbody tr td[name=item]{
+        max-width: 100px;
+    }
+
+    #to-do-table tbody tr td[name=owner]{
+        max-width: 80px;
     }
 
 }
 
 @media only screen and (max-width: 320px)  {
-    #contributions{
-        font-size: 0.75em;
+    button[name=delete]{
+        font-size: 0.85em;
+    }
+
+    #to-do-table tbody tr td[name=todo], #to-do-history-table tbody tr td[name=item]{
+        max-width: 90px;
+    }
+
+    #to-do-table tbody tr td[name=todo]{
+        max-width: 60px;
     }
 }

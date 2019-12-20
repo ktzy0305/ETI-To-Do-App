@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% block title %}Contributions Page{% endblock %}
 {% block content %}
 {% if user.is_authenticated %}
 <br>
@@ -174,6 +175,6 @@
 {% else %}
 <br>
 <p>You are not logged in</p>
-<a class="btn btn-primary" href="{% url 'login' %}">Login</button>
+<a class="btn btn-primary" href="{% url 'login' %}">Login</a>
 {% endif %}
 {% endblock %}

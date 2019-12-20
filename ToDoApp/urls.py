@@ -22,14 +22,13 @@ from django.views.generic.base import TemplateView # new
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('To_do_page/', todoGreeting, name='todopage'),
-    path('addTodo/', addTodo),
+    # path('addTodo/', addTodo),
     path('deleteTodo/<int:todo_id>/<todo_own>/<todo_Todo>/', deleteTodo),
     path('logout_view/', logout_view),
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
     #path('archiveHistory/<todo_Todo>/<todo_own>/', archiveHistory),
-    path('historyItem', historyItem),
     path('contribution/', contributions_view, name='contributionpage'),
-    path('historyItem', historyItem, name='todohistorypage'),
+    path('historyItem/', historyItem, name='todohistorypage'),
     path('accounts/', include('accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
 ]

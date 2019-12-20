@@ -1,14 +1,92 @@
 {% extends 'base.html' %}
-<title>To Do Page</title>
+{% block title %}To Do Page{% endblock %}
 {% block content %}
 {% if user.is_authenticated %}
-	<h1 name="greeting">Welcome {{ user.username }}, this is the to do page</h1>
+<form action="{% url 'todopage' %}" method="post">
+{% csrf_token %}
+	<div class="row">
+			<div class="col-sm-8 col-md-9 col-lg-10">
+				<div class="form-group" id="form-container">
+					<input type="text" class="form-control" id="Todo" name="Todo" placeholder="Enter To-Do Item Name" required>
+				</div>
+			</div>
+			<div class="col-sm-4 col-md-3 col-lg-2">
+				<div id="add-btn-container">
+					<button class="btn btn-primary" type="submit">Add New Item</button>
+				</div>
+			</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			{% if some_flag %}
+			<div id="some_flag" title="Some Flag">
+				<p>Item name cannot be empty!</p>
+			</div>
+			{% endif %}
+		</div>
+	</div>
+</form>
+<h2>To-Do</h2>
+<table class="table" id="to-do-table">
+	<thead class="thead-light">
+		<tr>
+			<th>Item Name</th>
+			<th>Owner</th>
+			<th>Time Created</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for todo_item in all_items %}
+		<tr>
+			<td name="todo">{{ todo_item.Todo }}</td>
+			<td name="owner">{{ todo_item.owner }}</td>
+			<td name="time">{{ todo_item.Timecreated }}</td>
+			<td name="action">
+				<form action="/deleteTodo/{{todo_item.id}}/{{todo_item.owner}}/{{todo_item.Todo}}/" method="post">
+					{% csrf_token %}
+					<button name="delete" class="btn btn-danger" type="submit">Delete</button>	
+				</form>
+			</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+<div class="row">
+	<div class="col-sm-8">
+		{% if all_items.has_other_pages %}
+		<ul class="pagination">
+		  {% if all_items.has_previous %}
+			<li class="page-item"><a class="page-link" href="?page={{ all_items.previous_page_number }}">Previous</a></li>
+		  {% else %}
+			<li class="page-item disabled"><span class="page-link">Previous</span></li>
+		  {% endif %}
+		  {% for i in all_items.paginator.page_range %}
+			{% if all_items.number == i %}
+			  <li class="page-item active"><span class="page-link">{{ i }} <span class="sr-only">(current)</span></span></li>
+			{% else %}
+			  <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+			{% endif %}
+		  {% endfor %}
+		  {% if all_items.has_next %}
+			<li class="page-item"><a class="page-link" href="?page={{ all_items.next_page_number }}">Next</a></li>
+		  {% else %}
+			<li class="page-item disabled"><span class="page-link">Next</span></li>
+		  {% endif %}
+		</ul>
+	  {% endif %}
+	</div>
+	<div class="col-sm-4">
+		<p id="pagination-count">Showing {{ all_items.start_index }} to {{ all_items.end_index }} of {{ all_items.paginator.count }} items</p>
+	</div>
+</div>
+	<!-- <h1 name="greeting">Welcome {{ user.username }}, this is the to do page</h1> -->
 <!--<ul>
 	<li>temp todo item1</li>
 	<li>temp todo item2</li>
 </ul> -->
 
-	<ul name='item_list'>
+	<!-- <ul name='item_list'>
 		{% for todo_item in all_items %}
 		<li>
 		<p>
@@ -17,17 +95,17 @@
 			<div name="time_created" margin=0 padding=0>Time Created: {{todo_item.Timecreated }}</div>
 			<form action="/deleteTodo/{{todo_item.id}}/{{todo_item.owner}}/{{todo_item.Todo}}/" method="post">{% csrf_token %}
 				<input name="delete" type="submit" value="Delete"/>
-			</form>
+			</form> -->
 			<!--<form action="/archiveHistory/{{todo_item.Todo}}/{{todo_item.owner}}/" method="post">{% csrf_token %}
 				<input name="archive" type="submit" value="Archive To history"/>
 				</br>
 			</form>-->
-		</p>
+		<!-- </p>
 		</li>
 		{% endfor %}
-	</ul>
+	</ul> -->
 	
-	<form action="/addTodo/" method="post">{% csrf_token %}
+	<!-- <form action="/addTodo/" method="post">{% csrf_token %}
 		<p>
 			Owner: <input type="text" name="Owner" value="{{ user.username }}" disabled/>
 		</p>
@@ -40,10 +118,10 @@
 			</div>
 		{% endif %}
 		<input type="submit" value="Add"/>	
-	</form>
+	</form> -->
 {% else %}
-	<p class='error_msg'>You are not logged in</p>
-	<button onclick="location.href='{% url 'login' %}'">Login</button>
+<p class='error_msg'>You are not logged in</p>
+<a class="btn btn-primary" href="{% url 'login' %}">Login</a>
 {% endif %}
 {% endblock %}
 
