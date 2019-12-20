@@ -12,8 +12,10 @@
 	<ul>
 		{% for todo_item in all_items %}
 		<li>
-			<P name="item">Item Name: {{todo_item.Todo }}</p>
-			<p name="owner">Owner: {{todo_item.owner }}</p>
+			<div name="item">{{todo_item.action }} {{todo_item.Todo }} for {{todo_item.owner }} from Todo page</div>
+			<div name='time'>With effect on: {{todo_item.Timecreated }}</div>
+			<br/>
+			<!--<p name="owner">Owner: {{todo_item.owner }}</p>-->
 		</li>
 		{% endfor %}
 	</ul>

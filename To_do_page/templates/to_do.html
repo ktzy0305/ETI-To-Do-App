@@ -15,13 +15,13 @@
 			<div name="item">Item Name: {{todo_item.Todo }}</div>
 			<div name="owner" margin=0 padding=0>Owner: {{todo_item.owner }}</div>
 			<div name="time_created" margin=0 padding=0>Time Created: {{todo_item.Timecreated }}</div>
-			<form action="/deleteTodo/{{todo_item.id}}/" method="post">{% csrf_token %}
+			<form action="/deleteTodo/{{todo_item.id}}/{{todo_item.owner}}/{{todo_item.Todo}}/" method="post">{% csrf_token %}
 				<input name="delete" type="submit" value="Delete"/>
 			</form>
-			<form action="/archiveHistory/{{todo_item.Todo}}/{{todo_item.owner}}/" method="post">{% csrf_token %}
+			<!--<form action="/archiveHistory/{{todo_item.Todo}}/{{todo_item.owner}}/" method="post">{% csrf_token %}
 				<input name="archive" type="submit" value="Archive To history"/>
 				</br>
-			</form>
+			</form>-->
 		</p>
 		</li>
 		{% endfor %}
