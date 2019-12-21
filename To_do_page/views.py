@@ -12,12 +12,17 @@ from datetime import datetime
 #    return HttpResponse('Hello, this is To-Do Page.')
 
 def todoGreeting(request):
+    context = {}
+    if request.POST:
+        owner_name = get_user(request)
+        new_todo = request.POST['Todo']
+        if ((owner_name != "")  and (new_todo != "")):
+            addTodo(request, owner_name=owner_name, new_todo=new_todo)
+        else:
+            context['some_flag'] = True
+
     own = get_user(request)
     all_todo = ToDoItem.objects.all().filter(owner=own).order_by('-Timecreated')
-    context = {
-        'all_items': all_todo
-    }
-
     paginator = Paginator(all_todo, 5)
     page = request.GET.get('page')
     if page is not None:
@@ -26,14 +31,6 @@ def todoGreeting(request):
     else:
         all_todo = paginator.get_page(1)
         context['all_items'] = all_todo
-
-    if request.POST:
-        owner_name = get_user(request)
-        new_todo = request.POST['Todo']
-        if ((owner_name != "")  and (new_todo != "")):
-            addTodo(request, owner_name=owner_name, new_todo=new_todo)
-        else:
-            context['some_flag'] = True
 
     return render(request, 'to_do.html', context)
     
