@@ -41,7 +41,7 @@
 		<tr>
 			<td name="todo">{{ todo_item.Todo }}</td>
 			<td name="owner">{{ todo_item.owner }}</td>
-			<td name="time">{{ todo_item.Timecreated }}</td>
+			<td name="time_created">{{ todo_item.Timecreated }}</td>
 			<td name="action">
 				<form action="/deleteTodo/{{todo_item.id}}/{{todo_item.owner}}/{{todo_item.Todo}}/" method="post">
 					{% csrf_token %}
@@ -80,45 +80,48 @@
 		<p id="pagination-count">Showing {{ all_items.start_index }} to {{ all_items.end_index }} of {{ all_items.paginator.count }} items</p>
 	</div>
 </div>
-	<!-- <h1 name="greeting">Welcome {{ user.username }}, this is the to do page</h1> -->
+
+<!-- Original To-Do Page Design -->
+
+<!-- <h1 name="greeting">Welcome {{ user.username }}, this is the to do page</h1> -->
 <!--<ul>
 	<li>temp todo item1</li>
 	<li>temp todo item2</li>
 </ul> -->
 
-	<!-- <ul name='item_list'>
-		{% for todo_item in all_items %}
-		<li>
-		<p>
-			<div name="item">Item Name: {{todo_item.Todo }}</div>
-			<div name="owner" margin=0 padding=0>Owner: {{todo_item.owner }}</div>
-			<div name="time_created" margin=0 padding=0>Time Created: {{todo_item.Timecreated }}</div>
-			<form action="/deleteTodo/{{todo_item.id}}/{{todo_item.owner}}/{{todo_item.Todo}}/" method="post">{% csrf_token %}
-				<input name="delete" type="submit" value="Delete"/>
-			</form> -->
-			<!--<form action="/archiveHistory/{{todo_item.Todo}}/{{todo_item.owner}}/" method="post">{% csrf_token %}
-				<input name="archive" type="submit" value="Archive To history"/>
-				</br>
-			</form>-->
-		<!-- </p>
-		</li>
-		{% endfor %}
-	</ul> -->
+<!-- <ul name='item_list'>
+	{% for todo_item in all_items %}
+	<li>
+	<p>
+		<div name="item">Item Name: {{todo_item.Todo }}</div>
+		<div name="owner" margin=0 padding=0>Owner: {{todo_item.owner }}</div>
+		<div name="time_created" margin=0 padding=0>Time Created: {{todo_item.Timecreated }}</div>
+		<form action="/deleteTodo/{{todo_item.id}}/{{todo_item.owner}}/{{todo_item.Todo}}/" method="post">{% csrf_token %}
+			<input name="delete" type="submit" value="Delete"/>
+		</form> -->
+		<!--<form action="/archiveHistory/{{todo_item.Todo}}/{{todo_item.owner}}/" method="post">{% csrf_token %}
+			<input name="archive" type="submit" value="Archive To history"/>
+			</br>
+		</form>-->
+	<!-- </p>
+	</li>
+	{% endfor %}
+</ul> -->
 	
-	<!-- <form action="/addTodo/" method="post">{% csrf_token %}
-		<p>
-			Owner: <input type="text" name="Owner" value="{{ user.username }}" disabled/>
-		</p>
-		<p>
-			To-Do Item Name: <input type="text" name="Todo" required/>
-		</P>
-		{% if some_flag %}
-			<div id="some_flag" title="Some Flag">
-				<p>Check your input for Owner name and Item name.</p>
-			</div>
-		{% endif %}
-		<input type="submit" value="Add"/>	
-	</form> -->
+<!-- <form action="/addTodo/" method="post">{% csrf_token %}
+	<p>
+		Owner: <input type="text" name="Owner" value="{{ user.username }}" disabled/>
+	</p>
+	<p>
+		To-Do Item Name: <input type="text" name="Todo" required/>
+	</P>
+	{% if some_flag %}
+		<div id="some_flag" title="Some Flag">
+			<p>Check your input for Owner name and Item name.</p>
+		</div>
+	{% endif %}
+	<input type="submit" value="Add"/>	
+</form> -->
 {% else %}
 <p class='error_msg'>You are not logged in</p>
 <a class="btn btn-primary" href="{% url 'login' %}">Login</a>
