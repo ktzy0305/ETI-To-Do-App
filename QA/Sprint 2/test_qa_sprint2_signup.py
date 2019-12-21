@@ -3,6 +3,9 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
 
+driver = webdriver.Chrome()
+sign_up_url = "http://127.0.0.1:8000/accounts/signup/"
+
 # User Sign Up with no input (Failing Test Case)
 def test_qa_signup_no_input():
     
