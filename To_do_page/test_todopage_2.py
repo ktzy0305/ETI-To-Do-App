@@ -5,7 +5,7 @@ import pytest
 
 driver=webdriver.Chrome()
 
-def  test_webpage():
+def test_webpage():
     driver.get('http://localhost:8000/login/login/')
     elem_name = driver.find_element_by_name("username")
     elem_name.clear()

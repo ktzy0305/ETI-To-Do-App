@@ -85,4 +85,4 @@ def historyItem(request):
 
 def logout_view(request):
     logout(request)
-    return HttpResponseRedirect('/login/login/') 
+    return HttpResponseRedirect('/login/login/')
