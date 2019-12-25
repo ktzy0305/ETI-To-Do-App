@@ -18,5 +18,5 @@ This a basic To-Do application developed using Django following the Software Cha
 ### QA Test Case Scenarios and Unit Tests
 - QA test case scenarios and unit tests can be found under the _QA_ folder.
 ### Justifications
-- Justifications for failed test cases can be found in the respective Test Case Scenario documents.
-- Justifications for coverage can be found in the _justification.docx_ file at the project root folder.
+- Justifications for failed test cases during Development and Testing can be found in the respective Test Case Scenario documents.
+- Justifications for failed test cases for a user who cloned this completed project and are wondering why are results different as shown during testing and development can be found in the _justification.docx_ file at the project root folder.
