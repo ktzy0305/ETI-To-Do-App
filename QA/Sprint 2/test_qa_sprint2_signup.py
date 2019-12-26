@@ -37,13 +37,14 @@ def handle_if_test_user_exists():
     users_table_body_element = driver.find_element_by_xpath('/html/body/div/div[3]/div/div/form/div[2]/table/tbody')
     number_of_users = len(users_table_body_element.find_elements_by_tag_name('tr'))
     for i in range(number_of_users):
-        username_column_link_element = driver.find_element_by_xpath('/html/body/div/div[3]/div/div/form/div[2]/table/tbody/tr[{0}]/th/a'.format(i+1))
+        username_column_link_element = driver.find_element_by_xpath('//*[@id="result_list"]/tbody/tr[{0}]/th/a'.format(i+1))
         if username_column_link_element.text == "sprint2@abc.com":
             username_column_link_element.click()
             user_delete_link_element = driver.find_element_by_xpath('//*[@id="user_form"]/div/div/p/a')
             user_delete_link_element.click()
             confirm_delete_element = driver.find_element_by_xpath('//*[@id="content"]/form/div/input[2]')
             confirm_delete_element.click()
+            break
     logout_link_element = driver.find_element_by_xpath('//*[@id="user-tools"]/a[3]')
     logout_link_element.click()
 
